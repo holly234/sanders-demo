@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sanders Hospital | Quality Healthcare in Nigeria</title>
+    <meta
+      name="description"
+      content="Sanders Hospital demo website concept for professional, compassionate healthcare services in Nigeria."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              hospital: {
+                blue: "#003B8E",
+                dark: "#08264d",
+                light: "#EAF2FC",
+                green: "#128C4A",
+                grey: "#F5F7FA",
+              },
+            },
+            fontFamily: {
+              heading: ["Montserrat", "sans-serif"],
+              body: ["Open Sans", "sans-serif"],
+            },
+            boxShadow: {
+              soft: "0 12px 28px rgba(8, 38, 77, 0.10)",
+              card: "0 8px 18px rgba(8, 38, 77, 0.08)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Open Sans", sans-serif;
+      }
+
+      .section-title {
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .nav-link {
+        color: #17365f;
+        font-weight: 600;
+        transition: color 180ms ease;
+      }
+
+      .nav-link:hover,
+      .nav-link:focus {
+        color: #003b8e;
+      }
+
+      .map-placeholder {
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.72)),
+          linear-gradient(90deg, #d7e0ea 1px, transparent 1px),
+          linear-gradient(#d7e0ea 1px, transparent 1px);
+        background-size: auto, 34px 34px, 34px 34px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-white font-body text-slate-700">
+    <div class="bg-hospital-blue text-white">
+      <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-2 text-sm font-semibold sm:flex-row sm:items-center sm:justify-between lg:px-8">
+        <div class="flex items-center gap-2">
+          <i data-lucide="siren" class="h-4 w-4" aria-hidden="true"></i>
+          <span>24/7 Emergency Services</span>
+        </div>
+        <a href="tel:+2348031234567" class="inline-flex items-center gap-2 hover:underline">
+          <i data-lucide="phone-call" class="h-4 w-4" aria-hidden="true"></i>
+          +234 803 123 4567
+        </a>
+      </div>
+    </div>
+
+    <header class="sticky top-0 z-40 border-b border-slate-200 bg-white">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8" aria-label="Main navigation">
+        <a href="#home" class="flex items-center gap-3" aria-label="Sanders Hospital home">
+          <span class="flex h-11 w-11 items-center justify-center rounded bg-hospital-blue text-white">
+            <i data-lucide="cross" class="h-6 w-6" aria-hidden="true"></i>
+          </span>
+          <span class="font-heading text-xl font-bold text-hospital-dark">Sanders Hospital</span>
+        </a>
+
+        <button
+          id="menuButton"
+          class="inline-flex h-11 w-11 items-center justify-center rounded border border-slate-300 text-hospital-dark md:hidden"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+        >
+          <i data-lucide="menu" class="h-6 w-6" aria-hidden="true"></i>
+        </button>
+
+        <div class="hidden items-center gap-7 md:flex">
+          <a class="nav-link" href="#home">Home</a>
+          <a class="nav-link" href="#about">About Us</a>
+          <a class="nav-link" href="#services">Services</a>
+          <a class="nav-link" href="#doctors">Our Doctors</a>
+          <a class="nav-link" href="#facilities">Facilities</a>
+          <a class="nav-link" href="#contact">Contact Us</a>
+        </div>
+      </nav>
+
+      <div id="mobileMenu" class="hidden border-t border-slate-200 bg-white md:hidden">
+        <div class="mx-auto grid max-w-7xl gap-1 px-4 py-3">
+          <a class="nav-link rounded px-2 py-3" href="#home">Home</a>
+          <a class="nav-link rounded px-2 py-3" href="#about">About Us</a>
+          <a class="nav-link rounded px-2 py-3" href="#services">Services</a>
+          <a class="nav-link rounded px-2 py-3" href="#doctors">Our Doctors</a>
+          <a class="nav-link rounded px-2 py-3" href="#facilities">Facilities</a>
+          <a class="nav-link rounded px-2 py-3" href="#contact">Contact Us</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="border-b border-slate-200 bg-white">
+        <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:py-16 lg:grid-cols-[1fr_0.95fr] lg:px-8 lg:py-20">
+          <div class="hero-copy max-w-2xl">
+            <p class="mb-4 inline-flex items-center gap-2 rounded bg-hospital-light px-4 py-2 text-sm font-bold uppercase tracking-wide text-hospital-blue">
+              <i data-lucide="heart-pulse" class="h-4 w-4" aria-hidden="true"></i>
+              Trusted healthcare in Nigeria
+            </p>
+            <h1 class="font-heading text-4xl font-extrabold leading-tight text-hospital-dark sm:text-5xl lg:text-6xl">
+              Welcome to Sanders Hospital
+            </h1>
+            <p class="mt-5 max-w-xl text-lg leading-8 text-slate-600 sm:text-xl">
+              Quality healthcare with compassion and excellence.
+            </p>
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#services"
+                class="inline-flex min-h-12 items-center justify-center rounded bg-hospital-blue px-7 py-3 text-base font-bold text-white shadow-card transition hover:bg-blue-900 focus:outline-none focus:ring-4 focus:ring-blue-200"
+              >
+                Our Services
+              </a>
+              <a
+                href="#contact"
+                class="inline-flex min-h-12 items-center justify-center rounded border-2 border-hospital-blue px-7 py-3 text-base font-bold text-hospital-blue transition hover:bg-hospital-light focus:outline-none focus:ring-4 focus:ring-blue-100"
+              >
+                Contact Us
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-image">
+            <div class="overflow-hidden rounded shadow-soft">
+              <img
+                src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1100&q=80"
+                alt="Modern hospital treatment area"
+                class="h-[310px] w-full object-cover sm:h-[420px]"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="emergency-strip bg-hospital-blue text-white">
+        <div class="mx-auto flex max-w-7xl flex-col gap-5 px-4 py-7 md:flex-row md:items-center md:justify-between lg:px-8">
+          <div class="flex items-start gap-4">
+            <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded bg-white text-hospital-blue">
+              <i data-lucide="ambulance" class="h-7 w-7" aria-hidden="true"></i>
+            </span>
+            <p class="text-lg font-semibold leading-7">
+              24/7 Emergency Services &mdash; We are always here when you need us the most.
+            </p>
+          </div>
+          <a
+            href="tel:+2348031234567"
+            class="inline-flex min-h-12 items-center justify-center rounded bg-white px-6 py-3 font-bold text-hospital-blue transition hover:bg-slate-100"
+          >
+            Call +234 803 123 4567
+          </a>
+        </div>
+      </section>
+
+      <section id="services" class="bg-hospital-grey py-16 sm:py-20">
+        <div class="mx-auto max-w-7xl px-4 lg:px-8">
+          <div class="max-w-2xl">
+            <p class="font-bold uppercase tracking-wide text-hospital-blue">Our Services</p>
+            <h2 class="section-title mt-2 text-3xl font-bold text-hospital-dark sm:text-4xl">Healthcare services for every stage of life</h2>
+            <p class="mt-4 leading-7 text-slate-600">
+              Sanders Hospital provides reliable medical care through attentive staff, practical facilities, and patient-first service.
+            </p>
+          </div>
+
+          <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+            <article class="service-card rounded bg-white p-6 shadow-card">
+              <i data-lucide="stethoscope" class="h-9 w-9 text-hospital-blue" aria-hidden="true"></i>
+              <h3 class="section-title mt-5 text-lg font-bold text-hospital-dark">Outpatient Care</h3>
+              <p class="mt-3 text-sm leading-6">Consultations, diagnosis, and follow-up care for everyday health needs.</p>
+            </article>
+            <article class="service-card rounded bg-white p-6 shadow-card">
+              <i data-lucide="test-tube-2" class="h-9 w-9 text-hospital-blue" aria-hidden="true"></i>
+              <h3 class="section-title mt-5 text-lg font-bold text-hospital-dark">Laboratory Services</h3>
+              <p class="mt-3 text-sm leading-6">Prompt sample collection and essential tests to support clinical decisions.</p>
+            </article>
+            <article class="service-card rounded bg-white p-6 shadow-card">
+              <i data-lucide="baby" class="h-9 w-9 text-hospital-blue" aria-hidden="true"></i>
+              <h3 class="section-title mt-5 text-lg font-bold text-hospital-dark">Maternity &amp; Women&rsquo;s Health</h3>
+              <p class="mt-3 text-sm leading-6">Antenatal care, delivery support, and women&rsquo;s health consultations.</p>
+            </article>
+            <article class="service-card rounded bg-white p-6 shadow-card">
+              <i data-lucide="pill" class="h-9 w-9 text-hospital-blue" aria-hidden="true"></i>
+              <h3 class="section-title mt-5 text-lg font-bold text-hospital-dark">Pharmacy</h3>
+              <p class="mt-3 text-sm leading-6">Quality medicines and clear guidance from our pharmacy team.</p>
+            </article>
+            <article class="service-card rounded bg-white p-6 shadow-card">
+              <i data-lucide="siren" class="h-9 w-9 text-hospital-blue" aria-hidden="true"></i>
+              <h3 class="section-title mt-5 text-lg font-bold text-hospital-dark">Emergency Care</h3>
+              <p class="mt-3 text-sm leading-6">Responsive emergency attention available day and night.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="bg-white py-16 sm:py-20">
+        <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 lg:grid-cols-2 lg:px-8">
+          <div class="about-image overflow-hidden rounded shadow-soft">
+            <img
+              src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1100&q=80"
+              alt="Clean hospital ward and patient care area"
+              class="h-[300px] w-full object-cover sm:h-[420px]"
+            />
+          </div>
+          <div class="about-copy">
+            <p class="font-bold uppercase tracking-wide text-hospital-blue">About Sanders Hospital</p>
+            <h2 class="section-title mt-2 text-3xl font-bold text-hospital-dark sm:text-4xl">A calm, caring hospital experience</h2>
+            <p class="mt-5 leading-8 text-slate-600">
+              Sanders Hospital is a professional healthcare facility committed to compassionate medical care, dependable service, and clear communication with every patient and family.
+            </p>
+            <p class="mt-4 leading-8 text-slate-600">
+              Our team supports patients with outpatient care, maternity services, diagnostics, pharmacy support, and emergency attention in a clean and welcoming environment.
+            </p>
+            <a
+              href="#contact"
+              class="mt-8 inline-flex min-h-12 items-center justify-center rounded bg-hospital-blue px-7 py-3 font-bold text-white transition hover:bg-blue-900"
+            >
+              Read More
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="doctors" class="border-y border-slate-200 bg-hospital-light py-14">
+        <div class="mx-auto grid max-w-7xl gap-6 px-4 sm:grid-cols-3 lg:px-8">
+          <div>
+            <p class="font-bold uppercase tracking-wide text-hospital-blue">Our Doctors</p>
+            <h2 class="section-title mt-2 text-3xl font-bold text-hospital-dark">Care led by experienced clinicians</h2>
+          </div>
+          <div class="rounded bg-white p-6 shadow-card">
+            <h3 class="section-title text-lg font-bold text-hospital-dark">General Medicine</h3>
+            <p class="mt-3 leading-7 text-slate-600">Routine consultations, health screening, and long-term patient support.</p>
+          </div>
+          <div class="rounded bg-white p-6 shadow-card">
+            <h3 class="section-title text-lg font-bold text-hospital-dark">Family &amp; Maternal Care</h3>
+            <p class="mt-3 leading-7 text-slate-600">Patient-focused care for families, mothers, and children.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="facilities" class="bg-white py-16 sm:py-20">
+        <div class="mx-auto max-w-7xl px-4 lg:px-8">
+          <div class="max-w-2xl">
+            <p class="font-bold uppercase tracking-wide text-hospital-blue">Why Choose Sanders Hospital</p>
+            <h2 class="section-title mt-2 text-3xl font-bold text-hospital-dark sm:text-4xl">Simple reasons patients trust our care</h2>
+          </div>
+          <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="why-card rounded border border-slate-200 bg-white p-6 shadow-card">
+              <i data-lucide="users-round" class="h-10 w-10 text-hospital-blue" aria-hidden="true"></i>
+              <h3 class="section-title mt-5 text-lg font-bold text-hospital-dark">Experienced Staff</h3>
+              <p class="mt-3 leading-7 text-slate-600">Skilled professionals focused on respectful, attentive treatment.</p>
+            </div>
+            <div class="why-card rounded border border-slate-200 bg-white p-6 shadow-card">
+              <i data-lucide="shield-check" class="h-10 w-10 text-hospital-blue" aria-hidden="true"></i>
+              <h3 class="section-title mt-5 text-lg font-bold text-hospital-dark">Quality Care</h3>
+              <p class="mt-3 leading-7 text-slate-600">Clear processes and dependable service from entry to discharge.</p>
+            </div>
+            <div class="why-card rounded border border-slate-200 bg-white p-6 shadow-card">
+              <i data-lucide="clock-3" class="h-10 w-10 text-hospital-blue" aria-hidden="true"></i>
+              <h3 class="section-title mt-5 text-lg font-bold text-hospital-dark">24/7 Service</h3>
+              <p class="mt-3 leading-7 text-slate-600">Emergency support is available whenever urgent care is needed.</p>
+            </div>
+            <div class="why-card rounded border border-slate-200 bg-white p-6 shadow-card">
+              <i data-lucide="wallet-cards" class="h-10 w-10 text-hospital-blue" aria-hidden="true"></i>
+              <h3 class="section-title mt-5 text-lg font-bold text-hospital-dark">Affordable</h3>
+              <p class="mt-3 leading-7 text-slate-600">Practical healthcare options for individuals and families.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="bg-hospital-grey py-16 pb-28 sm:py-20 md:pb-20">
+        <div class="mx-auto max-w-7xl px-4 lg:px-8">
+          <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+            <div>
+              <p class="font-bold uppercase tracking-wide text-hospital-blue">Contact Us</p>
+              <h2 class="section-title mt-2 text-3xl font-bold text-hospital-dark sm:text-4xl">Visit or speak with our team</h2>
+
+              <div class="mt-8 grid gap-4">
+                <a href="tel:+2348031234567" class="flex items-center gap-4 rounded bg-white p-5 shadow-card">
+                  <i data-lucide="phone-call" class="h-6 w-6 text-hospital-blue" aria-hidden="true"></i>
+                  <span>
+                    <span class="block font-bold text-hospital-dark">Phone</span>
+                    <span>+234 803 123 4567</span>
+                  </span>
+                </a>
+                <a href="mailto:info@sandershospital.com" class="flex items-center gap-4 rounded bg-white p-5 shadow-card">
+                  <i data-lucide="mail" class="h-6 w-6 text-hospital-blue" aria-hidden="true"></i>
+                  <span>
+                    <span class="block font-bold text-hospital-dark">Email</span>
+                    <span>info@sandershospital.com</span>
+                  </span>
+                </a>
+                <div class="flex items-center gap-4 rounded bg-white p-5 shadow-card">
+                  <i data-lucide="map-pin" class="h-6 w-6 text-hospital-blue" aria-hidden="true"></i>
+                  <span>
+                    <span class="block font-bold text-hospital-dark">Address</span>
+                    <span>12 Unity Avenue, Lagos, Nigeria</span>
+                  </span>
+                </div>
+                <div class="rounded bg-white p-5 shadow-card">
+                  <div class="flex items-center gap-4">
+                    <i data-lucide="clock" class="h-6 w-6 text-hospital-blue" aria-hidden="true"></i>
+                    <span class="font-bold text-hospital-dark">Opening Hours</span>
+                  </div>
+                  <p class="mt-3 leading-7">Monday - Saturday: 8:00am - 6:00pm</p>
+                  <p class="leading-7">Emergency: 24 hours daily</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid gap-6">
+              <div class="map-placeholder flex min-h-[260px] items-center justify-center rounded border border-slate-300 bg-white p-6 text-center shadow-card">
+                <div>
+                  <i data-lucide="map" class="mx-auto h-10 w-10 text-hospital-blue" aria-hidden="true"></i>
+                  <p class="mt-3 font-bold text-hospital-dark">Google Map Placeholder</p>
+                  <p class="mt-1 text-sm text-slate-600">12 Unity Avenue, Lagos, Nigeria</p>
+                </div>
+              </div>
+
+              <form class="rounded bg-white p-6 shadow-card" aria-label="Demo contact form">
+                <div class="grid gap-4 sm:grid-cols-2">
+                  <label class="grid gap-2 text-sm font-bold text-hospital-dark">
+                    Full Name
+                    <input class="min-h-12 rounded border border-slate-300 px-4 font-normal text-slate-700 outline-none focus:border-hospital-blue focus:ring-4 focus:ring-blue-100" type="text" placeholder="Your name" />
+                  </label>
+                  <label class="grid gap-2 text-sm font-bold text-hospital-dark">
+                    Phone Number
+                    <input class="min-h-12 rounded border border-slate-300 px-4 font-normal text-slate-700 outline-none focus:border-hospital-blue focus:ring-4 focus:ring-blue-100" type="tel" placeholder="+234..." />
+                  </label>
+                </div>
+                <label class="mt-4 grid gap-2 text-sm font-bold text-hospital-dark">
+                  Message
+                  <textarea class="min-h-28 rounded border border-slate-300 px-4 py-3 font-normal text-slate-700 outline-none focus:border-hospital-blue focus:ring-4 focus:ring-blue-100" placeholder="How can we help?"></textarea>
+                </label>
+                <button class="mt-5 inline-flex min-h-12 w-full items-center justify-center rounded bg-hospital-blue px-6 py-3 font-bold text-white transition hover:bg-blue-900 sm:w-auto" type="button">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-hospital-dark pb-20 text-white md:pb-0">
+      <div class="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
+        <div>
+          <h2 class="section-title text-xl font-bold">Sanders Hospital</h2>
+          <p class="mt-4 leading-7 text-blue-100">Quality healthcare with compassion and excellence for patients and families.</p>
+        </div>
+        <div>
+          <h3 class="font-bold">Quick Links</h3>
+          <div class="mt-4 grid gap-3 text-blue-100">
+            <a href="#about" class="hover:text-white">About Us</a>
+            <a href="#services" class="hover:text-white">Services</a>
+            <a href="#doctors" class="hover:text-white">Our Doctors</a>
+            <a href="#contact" class="hover:text-white">Contact Us</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-bold">Opening Hours</h3>
+          <p class="mt-4 leading-7 text-blue-100">Mon - Sat: 8:00am - 6:00pm</p>
+          <p class="leading-7 text-blue-100">Emergency: 24/7</p>
+        </div>
+        <div>
+          <h3 class="font-bold">Contact</h3>
+          <p class="mt-4 leading-7 text-blue-100">12 Unity Avenue, Lagos, Nigeria</p>
+          <a href="tel:+2348031234567" class="mt-2 block text-blue-100 hover:text-white">+234 803 123 4567</a>
+          <a href="mailto:info@sandershospital.com" class="mt-2 block text-blue-100 hover:text-white">info@sandershospital.com</a>
+        </div>
+      </div>
+      <div class="border-t border-white/10 px-4 py-5 text-center text-sm text-blue-100">
+        &copy; 2026 Sanders Hospital. Demo concept by Perpetual Dev.
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/2348031234567?text=Hello%20Sanders%20Hospital%2C%20I%20would%20like%20to%20make%20an%20appointment."
+      class="fixed bottom-24 right-4 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-hospital-green text-white shadow-soft transition hover:bg-green-800 md:bottom-6"
+      aria-label="Book an appointment on WhatsApp"
+      target="_blank"
+      rel="noopener"
+    >
+      <i data-lucide="message-circle" class="h-7 w-7" aria-hidden="true"></i>
+    </a>
+
+    <div class="fixed bottom-0 left-0 right-0 z-40 grid grid-cols-4 border-t border-slate-200 bg-white text-[11px] font-bold text-hospital-dark shadow-[0_-6px_20px_rgba(8,38,77,0.12)] md:hidden">
+      <a href="#contact" class="flex min-h-16 flex-col items-center justify-center gap-1 px-1">
+        <i data-lucide="map-pin" class="h-5 w-5 text-hospital-blue" aria-hidden="true"></i>
+        Find Us
+      </a>
+      <a href="#contact" class="flex min-h-16 flex-col items-center justify-center gap-1 border-l border-slate-200 px-1">
+        <i data-lucide="clock" class="h-5 w-5 text-hospital-blue" aria-hidden="true"></i>
+        Opening Hours
+      </a>
+      <a href="tel:+2348031234567" class="flex min-h-16 flex-col items-center justify-center gap-1 border-l border-slate-200 px-1">
+        <i data-lucide="phone" class="h-5 w-5 text-hospital-blue" aria-hidden="true"></i>
+        Call Us
+      </a>
+      <a href="mailto:info@sandershospital.com" class="flex min-h-16 flex-col items-center justify-center gap-1 border-l border-slate-200 px-1">
+        <i data-lucide="mail" class="h-5 w-5 text-hospital-blue" aria-hidden="true"></i>
+        Email Us
+      </a>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+      lucide.createIcons();
+
+      const menuButton = document.getElementById("menuButton");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const menuLinks = mobileMenu.querySelectorAll("a");
+
+      menuButton.addEventListener("click", () => {
+        const isOpen = !mobileMenu.classList.contains("hidden");
+        mobileMenu.classList.toggle("hidden");
+        menuButton.setAttribute("aria-expanded", String(!isOpen));
+      });
+
+      menuLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+          menuButton.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (!prefersReducedMotion && window.gsap) {
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.from(".hero-copy > *", {
+          opacity: 0,
+          y: 24,
+          duration: 0.75,
+          stagger: 0.12,
+          ease: "power2.out",
+        });
+
+        gsap.from(".hero-image", {
+          opacity: 0,
+          x: 28,
+          duration: 0.85,
+          ease: "power2.out",
+          delay: 0.15,
+        });
+
+        gsap.from(".emergency-strip", {
+          scrollTrigger: {
+            trigger: ".emergency-strip",
+            start: "top 85%",
+          },
+          opacity: 0,
+          y: 24,
+          duration: 0.65,
+          ease: "power2.out",
+        });
+
+        gsap.from(".service-card", {
+          scrollTrigger: {
+            trigger: "#services",
+            start: "top 70%",
+          },
+          opacity: 0,
+          y: 28,
+          duration: 0.65,
+          stagger: 0.12,
+          ease: "power2.out",
+        });
+
+        gsap.from(".about-image", {
+          scrollTrigger: {
+            trigger: "#about",
+            start: "top 70%",
+          },
+          opacity: 0,
+          x: -28,
+          duration: 0.75,
+          ease: "power2.out",
+        });
+
+        gsap.from(".about-copy", {
+          scrollTrigger: {
+            trigger: "#about",
+            start: "top 70%",
+          },
+          opacity: 0,
+          x: 28,
+          duration: 0.75,
+          ease: "power2.out",
+        });
+
+        gsap.from(".why-card", {
+          scrollTrigger: {
+            trigger: "#facilities",
+            start: "top 70%",
+          },
+          opacity: 0,
+          y: 24,
+          duration: 0.65,
+          stagger: 0.1,
+          ease: "power2.out",
+        });
+      }
+    </script>
+  </body>
+</html>
